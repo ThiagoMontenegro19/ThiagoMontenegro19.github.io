@@ -82,6 +82,9 @@
   details ul{margin:0 0 12px 20px;color:var(--muted);font-size:.93rem}
   details ul li{margin-bottom:4px}
 
+  .shot{margin:24px 0 8px}
+  .shot img{width:100%;border-radius:10px;border:1px solid var(--line);display:block}
+  .shot figcaption{color:var(--muted);font-size:.85rem;margin-top:8px}
   .note{font-size:.85rem;color:var(--muted);border-left:2px solid var(--accent2);padding-left:12px;margin-top:20px}
 
   .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
@@ -156,10 +159,10 @@
     <article class="case">
       <span class="tag">Em produção · ITA Júnior</span>
       <h3 class="title">Assistente RAG para consulta de acervo documental</h3>
-      <p class="meta">Cliente do setor farmacêutico (confidencial) · Equipe de 2 desenvolvedores · Python, FastAPI, Next.js</p>
+      <p class="meta">Cliente do setor de engenharia e construção (confidencial) · Equipe de 2 desenvolvedores · Python, FastAPI, Next.js</p>
 
       <h3>O problema</h3>
-      <p>O cliente tinha um acervo histórico de documentos técnicos em PDF, muitos deles escaneados, sem texto pesquisável. Encontrar uma informação levava <strong>horas</strong> e dependia de uma única pessoa, o dono da empresa, que sabia onde cada coisa estava. O conhecimento estava concentrado e o processo não escalava.</p>
+      <p>O cliente tinha um acervo histórico de documentos técnicos usados em licitações, em PDF, muitos deles escaneados, sem texto pesquisável. Encontrar uma informação levava <strong>horas</strong> e dependia de uma única pessoa, o dono da empresa, que sabia onde cada coisa estava. O conhecimento estava concentrado e o processo não escalava.</p>
 
       <h3>A solução</h3>
       <p>Um sistema de perguntas e respostas sobre o acervo: o usuário pergunta em linguagem natural e recebe uma resposta <strong>com citação do documento e da página de origem</strong>, para conferir a fonte. Por trás, um pipeline completo de ingestão e recuperação:</p>
@@ -172,6 +175,11 @@
         <span class="step hl">Reranker</span><span class="sep">→</span>
         <span class="step">Agente com citações</span>
       </div>
+
+      <figure class="shot">
+        <img src="img/consulta-acervo.png" alt="Tela de consulta ao acervo: pergunta em linguagem natural, resposta com referências numeradas e painel de fontes com documento e página" loading="lazy">
+        <figcaption>Tela de consulta: cada afirmação da resposta aponta para o trecho, o documento e a página de origem. Dados do cliente borrados.</figcaption>
+      </figure>
 
       <div class="metrics">
         <div class="metric"><div class="big">horas <span class="arrow">→</span> segundos</div><div class="lbl">tempo para encontrar uma informação no acervo</div></div>
