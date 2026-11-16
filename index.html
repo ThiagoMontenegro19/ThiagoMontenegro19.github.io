@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thiago Montenegro · Portfólio</title>
+<meta name="description" content="Portfólio de Thiago Montenegro — Engenharia Aeroespacial no ITA, Gerente de Dados na ITA Júnior. Sistemas de IA (RAG, OCR, agentes) em produção.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f17; --bg2:#111827; --card:#141b29; --line:#233047;
+    --text:#e6ebf4; --muted:#93a1b8; --accent:#5eead4; --accent2:#818cf8;
+    --mono:'JetBrains Mono',ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 24px}
+
+  nav{position:sticky;top:0;z-index:10;background:rgba(11,15,23,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+  nav .logo{font-family:var(--mono);font-weight:500;color:var(--text)}
+  nav .logo span{color:var(--accent)}
+  nav ul{display:flex;gap:24px;list-style:none}
+  nav ul a{color:var(--muted);font-size:.92rem}
+  nav ul a:hover{color:var(--text);text-decoration:none}
+
+  header.hero{padding:96px 0 72px}
+  .eyebrow{font-family:var(--mono);color:var(--accent);font-size:.9rem;margin-bottom:16px}
+  h1{font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.1;letter-spacing:-.02em;margin-bottom:20px}
+  h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:1.15rem;color:var(--muted);max-width:680px}
+  .cta{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:10px 20px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid var(--line)}
+  .btn.primary{background:var(--accent);color:#04201c;border-color:var(--accent)}
+  .btn:hover{text-decoration:none;filter:brightness(1.1)}
+  .btn.ghost{color:var(--text)}
+
+  section{padding:64px 0;border-top:1px solid var(--line)}
+  h2{font-size:1.6rem;letter-spacing:-.01em;margin-bottom:8px}
+  .sub{color:var(--muted);margin-bottom:32px}
+  h3{font-size:1.15rem;margin:32px 0 12px}
+  p{margin-bottom:14px}
+
+  .about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:32px}
+  .facts{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px 24px;list-style:none}
+  .facts li{padding:8px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .facts li:last-child{border:none}
+  .facts b{color:var(--accent);font-weight:500;font-family:var(--mono);font-size:.8rem;display:block;text-transform:uppercase;letter-spacing:.05em}
+
+  .case{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:36px;margin-bottom:28px}
+  .tag{display:inline-block;font-family:var(--mono);font-size:.75rem;color:var(--accent);border:1px solid rgba(94,234,212,.35);border-radius:999px;padding:2px 10px;margin-bottom:14px}
+  .case h3.title{font-size:1.5rem;margin:0 0 8px}
+  .case .meta{color:var(--muted);font-size:.92rem;margin-bottom:24px}
+
+  .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0 8px}
+  .metric{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .metric .big{font-size:1.45rem;font-weight:700;color:var(--text);line-height:1.2}
+  .metric .big .arrow{color:var(--accent)}
+  .metric .lbl{color:var(--muted);font-size:.85rem;margin-top:6px}
+
+  .pipeline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:16px 0 8px;font-family:var(--mono);font-size:.8rem}
+  .pipeline .step{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:8px 12px}
+  .pipeline .step.hl{border-color:var(--accent2);color:#c7cbff}
+  .pipeline .sep{color:var(--muted)}
+
+  ul.points{list-style:none;margin:8px 0}
+  ul.points li{position:relative;padding-left:22px;margin-bottom:10px}
+  ul.points li::before{content:"▹";position:absolute;left:0;color:var(--accent)}
+
+  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .stack span{font-family:var(--mono);font-size:.78rem;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:4px 10px;color:var(--muted)}
+
+  details{margin-top:24px;border:1px solid var(--line);border-radius:12px;padding:0 20px;background:var(--bg2)}
+  summary{cursor:pointer;padding:16px 0;font-weight:600}
+  details[open] summary{border-bottom:1px solid var(--line);margin-bottom:12px}
+  details h4{margin:16px 0 6px;color:var(--accent2);font-size:.95rem}
+  details ul{margin:0 0 12px 20px;color:var(--muted);font-size:.93rem}
+  details ul li{margin-bottom:4px}
+
+  .note{font-size:.85rem;color:var(--muted);border-left:2px solid var(--accent2);padding-left:12px;margin-top:20px}
+
+  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .skill{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px}
+  .skill h4{font-size:.95rem;margin-bottom:8px}
+  .skill p{color:var(--muted);font-size:.9rem;margin:0}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.9rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  @media (max-width:720px){
+    nav ul{display:none}
+    .about-grid{grid-template-columns:1fr}
+    .metrics{grid-template-columns:1fr}
+    .case{padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">thiago<span>.</span>montenegro</a>
+    <ul>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Olá, eu sou o Thiago 👋</p>
+    <h1>Construo sistemas de <span class="grad">IA que resolvem problemas reais</span> de negócio.</h1>
+    <p class="lead">Estudante de Engenharia Aeroespacial no ITA e Gerente de Dados na ITA Júnior. Desenvolvo soluções com RAG, OCR e agentes de IA para otimizar processos internos de empresas, do protótipo até a produção.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projetos">Ver projetos</a>
+      <a class="btn ghost" href="https://github.com/ThiagoMontenegro19" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="sobre">
+  <div class="wrap">
+    <h2>Sobre</h2>
+    <p class="sub">Engenharia, dados e IA aplicada.</p>
+    <div class="about-grid">
+      <div>
+        <p>Curso Engenharia Aeroespacial no <strong>ITA</strong> (Instituto Tecnológico de Aeronáutica), onde aprendi a pensar em sistemas: decompor problemas complexos, modelar, medir e iterar.</p>
+        <p>Na <strong>ITA Júnior</strong>, empresa júnior de consultoria do ITA, atuo como <strong>Gerente de Dados</strong>. Lidero projetos de IA para clientes, desde o entendimento do processo até a entrega de um sistema usado no dia a dia, e coordeno as etapas do projeto com a equipe.</p>
+        <p>Meu foco é transformar processos manuais e lentos em ferramentas que qualquer pessoa consegue usar, com qualidade medida e não só percebida.</p>
+      </div>
+      <ul class="facts">
+        <li><b>Formação</b>Engenharia Aeroespacial · ITA</li>
+        <li><b>Atuação</b>Gerente de Dados · ITA Júnior</li>
+        <li><b>Foco</b>RAG, OCR, agentes de IA, dados</li>
+        <li><b>Base</b>São José dos Campos, SP</li>
+        <li><b>Antes do ITA</b>Aprovado em USP e IME · medalhas em olimpíadas de lógica</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <h2>Projetos</h2>
+    <p class="sub">Projetos selecionados, com contexto, decisões técnicas e resultados.</p>
+
+    <!-- CASE 1 -->
+    <article class="case">
+      <span class="tag">Em produção · ITA Júnior</span>
+      <h3 class="title">Assistente RAG para consulta de acervo documental</h3>
+      <p class="meta">Cliente do setor farmacêutico (confidencial) · Equipe de 2 desenvolvedores · Python, FastAPI, Next.js</p>
+
+      <h3>O problema</h3>
+      <p>O cliente tinha um acervo histórico de documentos técnicos em PDF, muitos deles escaneados, sem texto pesquisável. Encontrar uma informação levava <strong>horas</strong> e dependia de uma única pessoa, o dono da empresa, que sabia onde cada coisa estava. O conhecimento estava concentrado e o processo não escalava.</p>
+
+      <h3>A solução</h3>
+      <p>Um sistema de perguntas e respostas sobre o acervo: o usuário pergunta em linguagem natural e recebe uma resposta <strong>com citação do documento e da página de origem</strong>, para conferir a fonte. Por trás, um pipeline completo de ingestão e recuperação:</p>
+      <div class="pipeline" aria-label="Arquitetura do pipeline">
+        <span class="step">Upload</span><span class="sep">→</span>
+        <span class="step">OCR</span><span class="sep">→</span>
+        <span class="step">Aprovação</span><span class="sep">→</span>
+        <span class="step">Chunking + Embeddings</span><span class="sep">→</span>
+        <span class="step hl">Busca híbrida (RRF)</span><span class="sep">→</span>
+        <span class="step hl">Reranker</span><span class="sep">→</span>
+        <span class="step">Agente com citações</span>
+      </div>
+
+      <div class="metrics">
+        <div class="metric"><div class="big">horas <span class="arrow">→</span> segundos</div><div class="lbl">tempo para encontrar uma informação no acervo</div></div>
+        <div class="metric"><div class="big">1 <span class="arrow">→</span> toda a equipe</div><div class="lbl">de uma única pessoa para qualquer colaborador com acesso</div></div>
+        <div class="metric"><div class="big">Em produção</div><div class="lbl">usado no dia a dia pela equipe do cliente</div></div>
+      </div>
+
+      <h3>Destaques técnicos</h3>
+      <ul class="points">
+        <li><strong>Recuperação em duas etapas:</strong> busca híbrida (vetorial + textual, combinada por Reciprocal Rank Fusion) seguida de um reranker que reordena os trechos por relevância antes da geração da resposta.</li>
+        <li><strong>Qualidade medida, não percebida:</strong> criamos um <em>golden set</em>, um gabarito de perguntas com o documento e a página corretos, e uma ferramenta de avaliação com testes A/B entre modelos de embedding.</li>
+        <li><strong>Auditoria de precisão:</strong> mapeamos e corrigimos falhas reais, como filtros que zeravam resultados e ruído vindo de folhas de rosto dos documentos.</li>
+        <li><strong>Ingestão robusta:</strong> OCR de documentos escaneados, título extraído do conteúdo (e não do nome do arquivo, o que revelou arquivos com nomes trocados) e classificação e sumarização automáticas por IA.</li>
+        <li><strong>Produto completo:</strong> API em FastAPI e interface em Next.js com consulta, acervo filtrável, histórico de conversas e exportação para Word.</li>
+        <li><strong>Desenvolvimento com agentes de IA:</strong> uso de Claude Code com agentes em paralelo e Codex guiado por instruções (AGENTS.md), com testes automatizados e registros de decisão (ADRs).</li>
+      </ul>
+
+      <h3>Meu papel</h3>
+      <p>Liderei a frente de <strong>dados e ingestão</strong>: triagem e OCR do acervo histórico, workflows documentados de OCR e indexação, o fluxo de upload, a ferramenta de consulta à base e a ferramenta de avaliação com teste A/B de embeddings. Também participei da escrita de testes, do plano do projeto e das decisões de arquitetura.</p>
+
+      <div class="stack">
+        <span>Python</span><span>FastAPI</span><span>Next.js</span><span>PostgreSQL</span><span>pgvector</span><span>Supabase</span><span>Voyage AI</span><span>OCR</span><span>RAG</span><span>Claude Code</span><span>Codex</span>
+      </div>
+
+      <details>
+        <summary>Detalhes técnicos completos</summary>
+        <h4>Dados e ingestão</h4>
+        <ul>
+          <li>Banco vetorial em Supabase (PostgreSQL + pgvector), validado contra o ambiente real.</li>
+          <li>Triagem, OCR e indexação do acervo histórico, incluindo documentos escaneados.</li>
+          <li>Workflows documentados de OCR e indexação, revisados a cada lote processado.</li>
+          <li>Extração do título a partir do conteúdo do documento.</li>
+          <li>Upload integrado ao pipeline: OCR em segundo plano, aprovação manual e indexação automática.</li>
+        </ul>
+        <h4>Pipeline RAG</h4>
+        <ul>
+          <li>Chunking, embeddings, busca híbrida e agente de respostas com citação das fontes.</li>
+          <li>Migração dos embeddings para a Voyage AI e reranking (rerank-2.5) após a busca híbrida.</li>
+          <li>Limite de similaridade configurável e ferramenta que junta recuperação e geração.</li>
+          <li>Correções a partir de uma auditoria formal de precisão.</li>
+        </ul>
+        <h4>Avaliação de qualidade</h4>
+        <ul>
+          <li>Golden set com documento e página esperados para cada pergunta.</li>
+          <li>Ferramenta de avaliação com teste A/B de modelos de embedding.</li>
+        </ul>
+        <h4>Classificação por IA</h4>
+        <ul>
+          <li>Classificação e sumarização automáticas, com filtros por categoria na busca.</li>
+        </ul>
+        <h4>Engenharia e processo</h4>
+        <ul>
+          <li>Testes automatizados offline (chunking, ingestão, roteamento).</li>
+          <li>Diário de bordo, plano do projeto e registros de decisão de arquitetura (ADRs).</li>
+        </ul>
+      </details>
+
+      <p class="note">O código e os dados deste projeto pertencem ao cliente e são confidenciais. Esta página descreve a arquitetura e os resultados sem expor informações sensíveis.</p>
+    </article>
+
+    <!-- CASE 2 -->
+    <article class="case">
+      <span class="tag">Open source · ITA Júnior</span>
+      <h3 class="title">Dashboard Superstore</h3>
+      <p class="meta">Dashboard interativo de vendas · Python, Streamlit, Supabase</p>
+      <p>Dashboard que consome dados de vendas armazenados no Supabase (PostgreSQL) e responde a dez perguntas de negócio: KPIs, evolução de vendas, ranking de cidades e estados, rentabilidade por subcategoria e um <strong>simulador interativo de descontos</strong> para testar cenários. Tem filtros globais (período, região, segmento, categoria) e uma seção de conclusões e limitações dos dados.</p>
+      <div class="stack">
+        <span>Python</span><span>Streamlit</span><span>Pandas</span><span>Plotly</span><span>Supabase</span>
+      </div>
+      <p style="margin-top:18px"><a href="https://github.com/ThiagoMontenegro19/Dashboard-Superstore---ITA-Jr." target="_blank" rel="noopener">Ver repositório →</a></p>
+    </article>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="wrap">
+    <h2>Habilidades</h2>
+    <p class="sub">O que eu uso para construir.</p>
+    <div class="skills">
+      <div class="skill"><h4>IA aplicada</h4><p>RAG, busca híbrida, reranking, embeddings, OCR, agentes, avaliação com golden sets.</p></div>
+      <div class="skill"><h4>Backend e dados</h4><p>Python (POO), FastAPI, pandas, PostgreSQL, pgvector, Supabase.</p></div>
+      <div class="skill"><h4>Produto e interface</h4><p>Next.js, Streamlit, Plotly, dashboards e ferramentas internas.</p></div>
+      <div class="skill"><h4>Forma de trabalho</h4><p>Desenvolvimento com agentes (Claude Code, Codex), testes, ADRs e coordenação de equipe.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="wrap">
+    <h2>Contato</h2>
+    <p class="sub">Quer conversar sobre um projeto ou oportunidade?</p>
+    <div class="cta" style="margin-top:0">
+      <a class="btn primary" href="https://github.com/ThiagoMontenegro19" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Thiago Montenegro</span>
+    <span>São José dos Campos, SP</span>
+  </div>
+</footer>
+
+</body>
+</html>
